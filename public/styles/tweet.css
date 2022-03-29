@@ -1,0 +1,64 @@
+.tweet-container {
+  display: flex;
+  flex-direction: column;
+  border: solid #545149;
+  margin: 1em;
+  padding: .3em;
+  background-color: white;
+}
+
+.tweet-container:hover {
+  box-shadow: 5px 5px #c9cae2;
+}
+
+.tweet-container .profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet-container .picture-name {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-container .picture-name .name {
+  padding-left: .5em;
+}
+
+.tweet-container .picture-name .picture {
+  width: 3em;
+}
+
+.tweet-container .tweeter-handle {
+  font-weight: bold;
+  color: #c9cae2;
+  padding-right: 1em;
+}
+
+.tweet-container .tweet-body {
+  padding: .5em;
+  padding-bottom: 1em;
+  font-weight: 400;
+}
+
+.tweet-container .tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid #545149;
+  font-weight: 400;
+  font-size: small;
+  padding: .6em;
+}
+
+.tweet-container .tweet-footer .tweet-actions {
+  cursor: pointer;
+}
+
+.tweet-container .tweet-footer .tweet-actions i {
+  color: #4056A1;
+  padding: 3px;
+}
+.tweet-container .tweet-footer .tweet-actions i:hover {
+  color: #cf933a;
+}

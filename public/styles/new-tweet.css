@@ -13,6 +13,8 @@
   height: 1.5em;
   resize: none;
   outline: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
 }
 
 .new-tweet .form-properties {
