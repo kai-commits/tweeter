@@ -1,0 +1,11 @@
+header {
+  height: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cf933a;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+  padding-top: 1em;
+}
