@@ -1,6 +1,72 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+$(() => {
+  $('.tweet-form').submit(function(event) {
+    event.preventDefault();
+    if ($(dataTags.input).val() === '') {
+      return alert("Tweet cannot be empty!");
+    }
+    if ($(dataTags.counter).val() < 0) {
+      return alert(`Tweet cannot exceed ${MAX_TWITTER_CHAR_COUNT} characters!`);
+    }
+    $.ajax('/tweets', { 
+      method: 'POST',
+      data: $(this).serialize()
+    })
+    .then(() => {
+      loadTweets();
+    });
+  });
 
+  const loadTweets = () => {
+    $.ajax('/tweets', {
+      method: 'GET'
+    })
+    .then((res) => {
+      $(dataTags.input).val('');
+      $(dataTags.counter).val(MAX_TWITTER_CHAR_COUNT);
+      $('.tweet-container').empty();
+      renderTweets(res);
+    });
+  };
+  loadTweets();
+});
+
+const createTweetElement = (tweetData) => {
+  return $(`
+  <article class="tweet">
+    <header class="profile">
+      <div class="picture-name">
+        <img class="picture" src="${escape(tweetData.user.avatars)}"/>
+        <div class="name">${escape(tweetData.user.name)}</div>
+      </div>
+      <div class="tweeter-handle">${escape(tweetData.user.handle)}</div>
+    </header>
+    <div class="tweet-body">${escape(tweetData.content.text)}</div>
+    <footer class="tweet-footer">
+      <div class="tweet-age">${escape(timeago.format(tweetData.created_at))}</div>
+      <div class="tweet-actions">
+        <i class="fa-solid fa-flag"></i>
+        <i class="fa-solid fa-retweet"></i>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+    </footer>
+  </article>
+  `);
+};
+
+const renderTweets = (data) => {
+  for (let tweet of data) {
+    $('.tweet-container').prepend(createTweetElement(tweet));
+  }
+};
+
+const escape = (str) => {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const MAX_TWITTER_CHAR_COUNT = 140;
+const dataTags = {
+  input: '[data-id=tweet-input]',
+  counter: '[data-id=tweet-count]',
+};

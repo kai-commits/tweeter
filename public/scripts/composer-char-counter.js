@@ -12,9 +12,3 @@ $(document).ready(function() {
     }
   });
 });
-
-const MAX_TWITTER_CHAR_COUNT = 140;
-const dataTags = {
-  input: '[data-id=tweet-input]',
-  counter: '[data-id=tweet-count]',
-}

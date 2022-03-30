@@ -1,4 +1,4 @@
-.tweet-container {
+.tweet {
   display: flex;
   flex-direction: column;
   border: solid #545149;
@@ -7,7 +7,7 @@
   background-color: white;
 }
 
-.tweet-container:hover {
+.tweet:hover {
   box-shadow: 5px 5px #c9cae2;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .tweet-container .picture-name .picture {
-  width: 3em;
+  width: 2em;
 }
 
 .tweet-container .tweeter-handle {
@@ -37,9 +37,9 @@
 }
 
 .tweet-container .tweet-body {
-  padding: .5em;
-  padding-bottom: 1em;
+  padding: 1em .5em 1em .5em;
   font-weight: 400;
+  overflow-wrap: break-word;
 }
 
 .tweet-container .tweet-footer {
