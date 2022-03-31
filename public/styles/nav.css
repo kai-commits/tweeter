@@ -2,8 +2,6 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: sticky;
-  top: 0;
 }
 
 .nav-bar {
@@ -12,8 +10,9 @@ nav {
   align-items: center;
   height: 100px;
   min-width: 100%;
-  background-color: #4056A1;
   color: #FFFFFF;
+  background-color: #cf933a;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
   padding: 1.5em;
   z-index: 2;
 }
@@ -23,6 +22,7 @@ nav {
   font-size: xx-large;
   text-decoration: none;
   color: inherit;
+  cursor: default;
 }
 
 .nav-tweet {
@@ -44,4 +44,23 @@ nav {
 
 .rotate {
   transform: rotate(180deg);
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    position: sticky;
+    top: 0;
+  }
+  
+  .nav-bar {
+    background-color: #4056A1;
+    background-image: none;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .nav-bar,
+  .logo {
+    font-size: large;
+  }
 }

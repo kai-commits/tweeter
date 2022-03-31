@@ -38,6 +38,10 @@
   cursor: pointer;
 }
 
+.new-tweet button:active {
+  background-color:#26335f;
+}
+
 .toast-error {
   display: flex;
   justify-content: space-around;

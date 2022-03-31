@@ -20,6 +20,7 @@ body {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
+  min-width: 420px;
 }
 
 /*
@@ -28,5 +29,17 @@ body {
 
 .container {
   margin: auto;
+  width: 100%;
+}
+
+.body-container {
+  margin: auto;
   width: 90%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    padding: 25px;
+  }
 }

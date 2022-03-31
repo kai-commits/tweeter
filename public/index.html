@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -41,29 +42,31 @@
         </div>
       </div>
     </nav>
-    <header class="app-header">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2 id="tweeter-name">Amy Smith</h2>
-      </div>
-  </header>
-
+    
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet" data-id="new-tweet">
-        <form class="tweet-form" action="/tweets/" method="POST" data-id="tweet-form">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" data-id="tweet-input"></textarea>
-          <div class="form-properties">
-            <button type="submit" id="submit-tweet">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text" data-id="tweet-count">140</output>
-          </div>
-        </form>
-      </section>
-      <section class="tweet-container" data-id="tweet-container"></section>
+      <header class="app-header">
+        <div>
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2 id="tweeter-name">Amy Mansell</h2>
+        </div>
+      </header>
+      <div class="body-container">
+        <section class="new-tweet" data-id="new-tweet">
+          <form class="tweet-form" action="/tweets/" method="POST" data-id="tweet-form">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text" data-id="tweet-input"></textarea>
+            <div class="form-properties">
+              <button type="submit" id="submit-tweet">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text" data-id="tweet-count">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweet-container" data-id="tweet-container"></section>
+      </div>
     </main>
   </body>
 </html>

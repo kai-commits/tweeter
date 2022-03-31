@@ -9,3 +9,12 @@
   background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
   padding-top: 1em;
 }
+
+@media only screen and (min-width: 1024px) {
+  .app-header {
+    margin: 25px;
+    width: 50%;
+    position: sticky;
+    top: 150px;
+  }
+}
