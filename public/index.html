@@ -30,14 +30,14 @@
 
   </head>
 
-  <body id="body">
+  <body>
     <!-- Top nav bar (fixed) -->
     <nav data-id="nav-data">
       <div class="nav-bar">
-        <a class="logo" href="#body">tweeter</a>
-        <div class="nav-tweet">
-          <a class="nav-new-tweet" href="#tweeter-name"><strong>Write</strong> a new tweet</a>
-          <i class="fa-solid fa-angles-down"></i>
+        <a class="logo">tweeter</a>
+        <div class="nav-tweet" data-id="nav-tweet">
+          <a class="nav-new-tweet"><strong>Write</strong> a new tweet</a>
+          <i class="fa-solid fa-angles-down" data-id="arrow-icon"></i>
         </div>
       </div>
     </nav>
@@ -53,7 +53,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="new-tweet" data-id="new-tweet">
         <form class="tweet-form" action="/tweets/" method="POST" data-id="tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" data-id="tweet-input"></textarea>

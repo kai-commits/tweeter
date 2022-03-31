@@ -30,6 +30,7 @@ nav {
   flex-direction: column;
   align-items: center;
   padding-top: 1em;
+  cursor: pointer;
 }
 
 .nav-new-tweet {
@@ -39,4 +40,8 @@ nav {
 
 .nav-tweet i {
   color: red;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

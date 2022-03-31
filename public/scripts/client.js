@@ -7,6 +7,9 @@ const dataTags = {
   container: '[data-id=tweet-container]',
   error: '[data-id=toast-error]',
   errorClose: '[data-id=error-close]',
+  navTweet: '[data-id=nav-tweet]',
+  newTweet: '[data-id=new-tweet]',
+  arrow: '[data-id=arrow-icon]',
 };
 
 $(() => {
@@ -25,6 +28,11 @@ $(() => {
     .then(() => {
       loadTweets();
     });
+  });
+
+  $(dataTags.navTweet).on('click', function() {
+    $(dataTags.newTweet).slideToggle();
+    $(dataTags.arrow).toggleClass('rotate');
   });
 
   const loadTweets = () => {

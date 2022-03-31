@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log('Im ready!');
-
   $(dataTags.input).on('input', function() {
     const updatedCount = MAX_TWITTER_CHAR_COUNT - this.value.length;
     $(dataTags.counter).val(updatedCount);
