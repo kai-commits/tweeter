@@ -5,10 +5,31 @@
   margin: 1em;
   padding: .3em;
   background-color: white;
+  box-shadow: none;
+  animation: outOfHover 0.2s ease;
 }
 
 .tweet:hover {
-  box-shadow: 5px 5px #c9cae2;
+  box-shadow: 5px 5px rgb(201, 202, 226, 1);
+  animation: intoHover 0.2s ease;
+}
+
+@keyframes intoHover {
+  0% {
+    box-shadow: 5px 5px rgb(201, 202, 226, 0);
+  }
+  100% {
+    box-shadow: 5px 5px rgb(201, 202, 226, 1);
+  }
+}
+
+@keyframes outOfHover {
+  0% {
+    box-shadow: 5px 5px rgb(201, 202, 226, 1);
+  }
+  100% {
+    box-shadow: 5px 5px rgb(201, 202, 226, 0);
+  }
 }
 
 .tweet-container .profile {

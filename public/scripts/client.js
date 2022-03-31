@@ -1,11 +1,22 @@
+const MAX_TWITTER_CHAR_COUNT = 140;
+const dataTags = {
+  input: '[data-id=tweet-input]',
+  counter: '[data-id=tweet-count]',
+  form: '[data-id=tweet-form]',
+  nav: '[data-id=nav-data]',
+  container: '[data-id=tweet-container]',
+  error: '[data-id=toast-error]',
+  errorClose: '[data-id=error-close]',
+};
+
 $(() => {
-  $('.tweet-form').submit(function(event) {
+  $(dataTags.form).on('submit', function(event) {
     event.preventDefault();
     if ($(dataTags.input).val() === '') {
-      return alert("Tweet cannot be empty!");
+      return showToastError(toastError("Tweet cannot be empty!"));
     }
     if ($(dataTags.counter).val() < 0) {
-      return alert(`Tweet cannot exceed ${MAX_TWITTER_CHAR_COUNT} characters!`);
+      return showToastError(toastError(`Tweet cannot exceed ${MAX_TWITTER_CHAR_COUNT} characters!`));
     }
     $.ajax('/tweets', { 
       method: 'POST',
@@ -23,7 +34,7 @@ $(() => {
     .then((res) => {
       $(dataTags.input).val('');
       $(dataTags.counter).val(MAX_TWITTER_CHAR_COUNT);
-      $('.tweet-container').empty();
+      $(dataTags.container).empty();
       renderTweets(res);
     });
   };
@@ -55,18 +66,34 @@ const createTweetElement = (tweetData) => {
 
 const renderTweets = (data) => {
   for (let tweet of data) {
-    $('.tweet-container').prepend(createTweetElement(tweet));
+    $(dataTags.container).prepend(createTweetElement(tweet));
   }
 };
+
+const toastError = (errorMessage) => {
+  return $(`
+  <section class="toast-error" data-id="toast-error">
+    <i class="fa-solid fa-circle-exclamation toast-content" id="error-icon"></i>
+    <div class="error-message toast-content"><strong>Error: </strong>${errorMessage}</div>
+    <i class="fa-solid fa-xmark toast-content" id="error-close" data-id="error-close"></i>
+  </section>
+  `);
+};
+
+const showToastError = (toastError) => {
+  if ($(dataTags.error).length > 0) {
+    return;
+  }
+  $(dataTags.nav).append(toastError);
+  $(dataTags.errorClose).on('click', function(event) {
+    event.preventDefault();
+    $(dataTags.error).remove();
+  });
+};
+
 
 const escape = (str) => {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-};
-
-const MAX_TWITTER_CHAR_COUNT = 140;
-const dataTags = {
-  input: '[data-id=tweet-input]',
-  counter: '[data-id=tweet-count]',
 };

@@ -37,3 +37,36 @@
   cursor: pointer;
 }
 
+.toast-error {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e25241;
+  color: white;
+  width:max-content;
+  padding: .3em;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px -1px rgba(0,0,0,0.3);
+  z-index: 1;
+  position: absolute;
+  top: 120px;
+  animation: slideDown ease 1s;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-120px);
+  } 
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.toast-error .toast-content {
+  padding: .3em;
+  line-height: 20px;
+  cursor: default;
+}
+
+.toast-error #error-close {
+  cursor: pointer;
+}

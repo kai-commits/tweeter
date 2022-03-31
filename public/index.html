@@ -30,13 +30,15 @@
 
   </head>
 
-  <body>
+  <body id="body">
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="logo">tweeter</span>
-      <div class="nav-tweet">
-        <span><strong>Write</strong> a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+    <nav data-id="nav-data">
+      <div class="nav-bar">
+        <a class="logo" href="#body">tweeter</a>
+        <div class="nav-tweet">
+          <a class="nav-new-tweet" href="#tweeter-name"><strong>Write</strong> a new tweet</a>
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
       </div>
     </nav>
     <header class="app-header">
@@ -45,14 +47,14 @@
       </div>
       <br>
       <div>
-          <h2>Amy Smith</h2>
+          <h2 id="tweeter-name">Amy Smith</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form class="tweet-form" action="/tweets/" method="POST">
+        <form class="tweet-form" action="/tweets/" method="POST" data-id="tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" data-id="tweet-input"></textarea>
           <div class="form-properties">
@@ -61,7 +63,7 @@
           </div>
         </form>
       </section>
-      <section class="tweet-container"></section>
+      <section class="tweet-container" data-id="tweet-container"></section>
     </main>
   </body>
 </html>
