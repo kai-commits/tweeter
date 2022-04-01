@@ -7,9 +7,11 @@ This project was built from the [Lighthouse-Labs-Tweeter](https://github.com/lig
 ## Final Product Screenshots
 
 Desktop version
+
 !["Screenshot of desktop version"](https://github.com/kai-commits/tweeter/blob/master/docs/tweeter-desktop.png)
 
 Mobile version
+
 !["Screenshot of mobile version"](https://github.com/kai-commits/tweeter/blob/master/docs/tweeter-mobile.png)
 
 ## Getting Started
