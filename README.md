@@ -4,6 +4,10 @@ Tweeter is a simple, single-page Twitter clone.
 
 This project was built from the [Lighthouse-Labs-Tweeter](https://github.com/lighthouse-labs/tweeter) Template.
 
+## Final Product
+
+!["Screenshot of desktop version"](https://github.com/kai-commits/tweeter/blob/master/docs/tweeter-desktop.png)
+!["Screenshot of mobile version"](https://github.com/kai-commits/tweeter/blob/master/docs/tweeter-mobile.png)
 
 ## Getting Started
 
