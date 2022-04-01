@@ -83,3 +83,15 @@
 .tweet-container .tweet-footer .tweet-actions i:hover {
   color: #cf933a;
 }
+
+@media only screen and (max-width: 540px) {
+  .profile {
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .profile {
+    font-size: small;
+  }
+}

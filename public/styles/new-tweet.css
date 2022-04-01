@@ -53,7 +53,7 @@
   box-shadow: 5px 5px 10px -1px rgba(0,0,0,0.3);
   z-index: 1;
   position: absolute;
-  top: 120px;
+  top: 80px;
   animation: slideDown ease 1s;
 }
 
@@ -70,8 +70,28 @@
   padding: .3em;
   line-height: 20px;
   cursor: default;
+  overflow-wrap: break-word;
 }
 
 .toast-error #error-close {
   cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+  .toast-error {
+    top: 25px;
+    z-index: 3;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .toast-error {
+    font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .toast-error {
+    font-size: small;
+  }
 }

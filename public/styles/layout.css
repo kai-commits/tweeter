@@ -20,7 +20,7 @@ body {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
-  min-width: 420px;
+  min-width: 300px;
 }
 
 /*
@@ -41,5 +41,9 @@ body {
   .container {
     display: flex;
     padding: 25px;
+  }
+
+  .body-container {
+    max-width: 65vw;
   }
 }

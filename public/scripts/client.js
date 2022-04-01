@@ -1,4 +1,8 @@
 const MAX_TWITTER_CHAR_COUNT = 140;
+
+// Using data-tags instead of accessing classes directly.
+// This allows me to alter css classes without ruining the js functionality
+// and also keep track of which html elements have functionality tied to them.
 const dataTags = {
   input: '[data-id=tweet-input]',
   counter: '[data-id=tweet-count]',
@@ -12,8 +16,8 @@ const dataTags = {
   arrow: '[data-id=arrow-icon]',
 };
 
-$(() => {
-  $(dataTags.form).on('submit', function(event) {
+$(() => { // Makes sure document is ready.
+  $(dataTags.form).on('submit', function(event) { // Event when 'tweet' button is clicked.
     event.preventDefault();
     if ($(dataTags.input).val() === '') {
       return showToastError(toastError("Tweet cannot be empty!"));
@@ -30,9 +34,10 @@ $(() => {
     });
   });
 
-  $(dataTags.navTweet).on('click', function() {
+  $(dataTags.navTweet).on('click', function() { // Event when 'Write new tweet' is clicked.
     $(dataTags.newTweet).slideToggle();
-    $(dataTags.arrow).toggleClass('rotate');
+    $(dataTags.arrow).toggleClass('rotate'); // Calls '.rotate' css class which rotates the red arrow icon 180 deg.
+    $(dataTags.input).focus();
   });
 
   const loadTweets = () => {
@@ -40,7 +45,7 @@ $(() => {
       method: 'GET'
     })
     .then((res) => {
-      $(dataTags.input).val('');
+      $(dataTags.input).val(''); // Resets values to default
       $(dataTags.counter).val(MAX_TWITTER_CHAR_COUNT);
       $(dataTags.container).empty();
       renderTweets(res);
@@ -49,7 +54,7 @@ $(() => {
   loadTweets();
 });
 
-const createTweetElement = (tweetData) => {
+const createTweetElement = (tweetData) => { // Dynamically creates new tweets from template.
   return $(`
   <article class="tweet">
     <header class="profile">
@@ -78,7 +83,7 @@ const renderTweets = (data) => {
   }
 };
 
-const toastError = (errorMessage) => {
+const toastError = (errorMessage) => { // Creates error message template.
   return $(`
   <section class="toast-error" data-id="toast-error">
     <i class="fa-solid fa-circle-exclamation toast-content" id="error-icon"></i>
@@ -89,18 +94,17 @@ const toastError = (errorMessage) => {
 };
 
 const showToastError = (toastError) => {
-  if ($(dataTags.error).length > 0) {
+  if ($(dataTags.error).length > 0) { // If error is already displayed.
     return;
   }
   $(dataTags.nav).append(toastError);
-  $(dataTags.errorClose).on('click', function(event) {
+  $(dataTags.errorClose).on('click', function(event) { // Event when 'X' button on error is clicked.
     event.preventDefault();
     $(dataTags.error).remove();
   });
 };
 
-
-const escape = (str) => {
+const escape = (str) => { // Prevents cross-site scripting.
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
